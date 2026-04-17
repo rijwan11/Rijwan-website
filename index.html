@@ -1,1 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rijwan Sai | Academic Website</title>
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: #0f172a;
+      background: #ffffff;
+    }
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.95);
+      border-bottom: 1px solid #e2e8f0;
+      z-index: 1000;
+      backdrop-filter: blur(8px);
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+    nav .brand {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 18px;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+    nav a {
+      text-decoration: none;
+      color: #1e293b;
+      font-weight: 600;
+    }
+    nav a:hover {
+      color: #1d4ed8;
+    }
+    .hero {
+      background: linear-gradient(to bottom, #eff6ff, #ffffff);
+      padding: 70px 0 60px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .tag {
+      color: #1d4ed8;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    h1 {
+      font-size: 3rem;
+      margin: 12px 0;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+    .headline {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 8px;
+    }
+    .subheadline {
+      font-size: 1.05rem;
+      color: #475569;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      color: #334155;
+    }
+    .buttons {
+      margin-top: 24px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .btn-primary {
+      background: #1d4ed8;
+      color: white;
+    }
+    .btn-secondary {
+      border: 1px solid #cbd5e1;
+      color: #0f172a;
+    }
+    .profile-card, .card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
+    }
+    .profile-card img {
+      width: 100%;
+      border-radius: 24px;
+      display: block;
+      margin-bottom: 22px;
+    }
+    section {
+      padding: 70px 0;
+    }
+    .light {
+      background: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+    .stat-box {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
+    }
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #1d4ed8;
+    }
+    .list-box {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
+    }
+    .list-box ul {
+      padding-left: 18px;
+    }
+    .pub-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 24px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
+    }
+    .pub-card h3 {
+      margin-top: 10px;
+      margin-bottom: 8px;
+      font-size: 1.2rem;
+    }
+    .pub-card .pub-no {
+      color: #1d4ed8;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .pub-card .journal {
+      color: #475569;
+      font-style: italic;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .contact-card {
+      display: block;
+      text-decoration: none;
+      color: #0f172a;
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
+    }
+    .contact-card:hover {
+      transform: translateY(-4px);
+      transition: 0.2s ease;
+    }
+    footer {
+      border-top: 1px solid #e2e8f0;
+      padding: 24px 0;
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 900px) {
+      .hero-grid, .grid-2, .grid-3, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      h1 {
+        font-size: 2.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
 
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand">Rijwan Sai</div>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#cv">CV</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <div class="tag">University of Manitoba</div>
+        <h1>Rijwan Sai</h1>
+        <div class="headline">M.Sc. Soil Science Student | Graduate Research Assistant | University of Manitoba</div>
+        <div class="subheadline">Precision 4R management, nitrogen use efficiency, and greenhouse gas emissions in canola systems</div>
+        <p>
+          Rijwan Sai is an M.Sc. Soil Science student and Graduate Research Assistant in the Department of Soil Science at the University of Manitoba, Canada. His current research focuses on Precision 4R management to improve nitrogen use efficiency and reduce greenhouse gas emissions in canola production systems. He has research experience spanning soil fertility, crop productivity, fertiliser management, and sustainable agriculture, with publications and presentations across multiple agricultural topics.
+        </p>
+        <div class="buttons">
+          <a class="btn btn-primary" href="#publications">View Publications</a>
+          <a class="btn btn-secondary" href="#contact">Contact</a>
+        </div>
+      </div>
+
+      <div class="profile-card">
+        <img src="your-photo.jpg" alt="Portrait of Rijwan Sai">
+        <h3>Quick Profile</h3>
+        <p><strong>Role:</strong><br>M.Sc. Soil Science Student & Graduate Research Assistant</p>
+        <p><strong>Institution:</strong><br>Department of Soil Science, University of Manitoba</p>
+        <p><strong>Focus Areas:</strong><br>Precision 4R management, NUE, canola systems, GHG emissions</p>
+        <p><strong>Location:</strong><br>Winnipeg, Manitoba, Canada</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container grid-2">
+      <div>
+        <div class="tag">About</div>
+        <h2>Academic background</h2>
+        <p>
+          Rijwan Sai is currently pursuing an M.Sc. in Soil Science at the University of Manitoba. His graduate work centres on precision nutrient management in canola systems, with an emphasis on improving nitrogen use efficiency and reducing greenhouse gas emissions. His broader academic background includes soil fertility, crop production, nutrient management, and sustainable agriculture across both research and teaching roles.
+        </p>
+      </div>
+
+      <div class="stats">
+        <div class="stat-box">
+          <div class="stat-number">10+</div>
+          <div>Peer-reviewed publications listed</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">2026</div>
+          <div>Conference presentation in Manitoba</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">M.Sc.</div>
+          <div>Graduate study in Soil Science</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">4R</div>
+          <div>Precision nutrient management focus</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="research" class="light">
+    <div class="container">
+      <div class="tag">Research</div>
+      <h2>Research areas and ongoing work</h2>
+      <div class="grid-3">
+        <div class="list-box">
+          <h3>Current M.Sc. Research</h3>
+          <ul>
+            <li>Precision 4R management</li>
+            <li>Nitrogen use efficiency</li>
+            <li>Greenhouse gas emissions in canola systems</li>
+          </ul>
+        </div>
+        <div class="list-box">
+          <h3>Previous Research</h3>
+          <ul>
+            <li>Potato fertiliser trials</li>
+            <li>Biochar and nutrient management</li>
+            <li>Crop productivity studies</li>
+          </ul>
+        </div>
+        <div class="list-box">
+          <h3>Research Interests</h3>
+          <ul>
+            <li>Soil fertility</li>
+            <li>Fertiliser efficiency</li>
+            <li>Precision agriculture</li>
+            <li>Sustainable crop production</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications">
+    <div class="container">
+      <div class="tag">Publications</div>
+      <h2>Selected publications</h2>
+      <p>
+        <a href="https://scholar.google.com/citations?user=l_cgYuUAAAAJ&hl=en" target="_blank">View full Google Scholar profile</a>
+      </p>
+
+      <div class="pub-card">
+        <div class="pub-no">Publication 1</div>
+        <h3>Influence of higher levels of NPK fertilizers on growth, yield and profitability of three potato varieties in Surma, Bajhang, Nepal</h3>
+        <p>Sai, R., & Paswan, S. (2024)</p>
+        <p class="journal">Heliyon, 10(14), e34601</p>
+        <p><a href="https://doi.org/10.1016/j.heliyon.2024.e34601" target="_blank">https://doi.org/10.1016/j.heliyon.2024.e34601</a></p>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-no">Publication 2</div>
+        <h3>Effects of biochar with organic and inorganic fertilizers on growth and yield of potato in Surma, Bajhang, Nepal</h3>
+        <p>Paswan, S., Sai, R., Shrestha, A., et al. (2025)</p>
+        <p class="journal">Arab Universities Journal of Agricultural Sciences, 33(1), 35–48</p>
+        <p><a href="https://doi.org/10.21608/ajs.2025.306634.1579" target="_blank">https://doi.org/10.21608/ajs.2025.306634.1579</a></p>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-no">Publication 3</div>
+        <h3>Apical bud pinching and foliar spray of zinc and boron triggers growth and yield of okra</h3>
+        <p>Bhattarai, B., Neupane, M. P., Sai, R., et al. (2025)</p>
+        <p class="journal">Turkish Journal of Agriculture - Food Science and Technology, 13(5), 1310–1323</p>
+        <p><a href="https://doi.org/10.24925/turjaf.v13i5.1310-1323.7487" target="_blank">https://doi.org/10.24925/turjaf.v13i5.1310-1323.7487</a></p>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-no">Publication 4</div>
+        <h3>Assessment of physico-chemical qualities of turmeric varieties subjected to different blanching methods in Salyan, Nepal</h3>
+        <p>Lamsal, B., Sai, R., Adhikari, H., et al. (2025)</p>
+        <p class="journal">Turkish Journal of Agriculture - Food Science and Technology, 13(4), 1024–1033</p>
+        <p><a href="https://doi.org/10.24925/turjaf.v13i4.1024-1033.7431" target="_blank">https://doi.org/10.24925/turjaf.v13i4.1024-1033.7431</a></p>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-no">Publication 5</div>
+        <h3>Potential of biochar-based fertilizers for increasing the productivity of okra in Gajuri, Dhading</h3>
+        <p>Shrestha, A., Sai, R., & Devkota, M. (2024)</p>
+        <p class="journal">Turkish Journal of Agriculture - Food Science and Technology, 12(s1), 2021–2031</p>
+        <p><a href="https://doi.org/10.24925/turjaf.v12is1.2021-2031.6946" target="_blank">https://doi.org/10.24925/turjaf.v12is1.2021-2031.6946</a></p>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-no">Publication 6</div>
+        <h3>Weed management effects on weed dynamics, yield and economics of spring maize at Dang, Nepal</h3>
+        <p>Devkota, M., Sai, R., Shrestha, A., et al. (2024)</p>
+        <p class="journal">Turkish Journal of Agriculture - Food Science and Technology, 12(s1), 1997–2008</p>
+        <p><a href="https://doi.org/10.24925/turjaf.v12is1.1997-2008.6865" target="_blank">https://doi.org/10.24925/turjaf.v12is1.1997-2008.6865</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="cv" class="light">
+    <div class="container">
+      <div class="tag">CV</div>
+      <h2>Curriculum vitae</h2>
+      <div class="card">
+        <p>A downloadable CV can be added here later.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="tag">Contact</div>
+      <h2>Get in touch</h2>
+      <div class="contact-grid">
+        <a class="contact-card" href="mailto:sair1@myumanitoba.ca">
+          <strong>Email</strong><br><br>
+          sair1@myumanitoba.ca
+        </a>
+        <a class="contact-card" href="https://www.linkedin.com/in/rijwansai" target="_blank">
+          <strong>LinkedIn</strong><br><br>
+          linkedin.com/in/rijwansai
+        </a>
+        <a class="contact-card" href="https://www.researchgate.net/profile/Rijwan-Sai" target="_blank">
+          <strong>ResearchGate</strong><br><br>
+          Rijwan-Sai
+        </a>
+        <a class="contact-card" href="https://orcid.org/0000-0003-4672-615X" target="_blank">
+          <strong>ORCID</strong><br><br>
+          0000-0003-4672-615X
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © 2026 Rijwan Sai. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
